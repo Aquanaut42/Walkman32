@@ -3,9 +3,9 @@
 <p align="center"><strong>Your music deserve a home. This is it.</strong></p>
 
 <p align="center">
-Think of this as an evolution from the old walkman, it can ply music from a bunch of file type, connects and play onto bluetooth devices, and all away from cooperate overlords
-Your music, your control
+Think of this as an evolution from the old walkman, it can play music from a bunch of file type, connects and play onto bluetooth devices, and all away from corporate overlords
 </p>
+<p align="center">Your music, your control</p>
 
 ##  Features
 
