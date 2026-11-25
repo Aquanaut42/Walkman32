@@ -1,0 +1,22 @@
+#ifndef ENUM_H
+#define ENUM_H
+
+enum PageEnum {
+  PAGE_MAIN = 0,
+  PAGE_SONGS = 1,
+  PAGE_ALBUMS = 2,
+  PAGE_ARTISTS = 3,
+  PAGE_PLAYLISTS = 4,
+  PAGE_RECORDINGS = 5,
+  PAGE_STATS = 6,
+  PAGE_BLUETOOTH = 7,
+  PAGE_PLAYBACK = 8
+};
+
+enum BrowseLevel {
+  LEVEL_ARTISTS,
+  LEVEL_ALBUMS,
+  LEVEL_SONGS
+};
+
+#endif
