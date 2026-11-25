@@ -1,4 +1,4 @@
-// Fieldwalk_FW-01.ino
+// Walkman32.ino
 // Main entry point. All BT audio handled by playback.cpp (proven helix pipeline).
 // input.cpp no longer includes audio_player.h — that library is removed.
 
@@ -54,29 +54,7 @@ static void refreshScreen() {
 void setup() {
     Serial.begin(115200);
     delay(1000);
-    Serial.println("=== Fieldwalk Starting ===");
-
-    // Buttons
-    pinMode(BUTTON_IN,     INPUT_PULLUP);
-    pinMode(BTN_PREV,      INPUT_PULLUP);
-    pinMode(BTN_NEXT,      INPUT_PULLUP);
-    pinMode(BTN_PLAY,      INPUT_PULLUP);
-    pinMode(BTN_REC,       INPUT_PULLUP);
-    pinMode(BTN_RETURN,    INPUT_PULLUP);
-    pinMode(PIN_ENCODER_A, INPUT_PULLUP);
-    pinMode(PIN_ENCODER_B, INPUT_PULLUP);
-    Serial.println("Buttons OK");
-
-    // Battery: ADC setup happens before Bluetooth/audio start
-    battery_init();
-    battery_printStatus();
-
-    // Rotary encoder
-    encoder = new RotaryEncoder(PIN_ENCODER_A, PIN_ENCODER_B,
-                                RotaryEncoder::LatchMode::TWO03);
-    attachInterrupt(digitalPinToInterrupt(PIN_ENCODER_A), checkPosition, CHANGE);
-    attachInterrupt(digitalPinToInterrupt(PIN_ENCODER_B), checkPosition, CHANGE);
-    Serial.println("Encoder OK");
+    Serial.println("=== Walkman32 Starting ===");
 
     // OLED
     System_Init();
@@ -94,6 +72,27 @@ void setup() {
 
     showBoot();
 
+    // Buttons
+    pinMode(BUTTON_IN,     INPUT_PULLUP);
+    pinMode(BTN_PREV,      INPUT_PULLUP);
+    pinMode(BTN_NEXT,      INPUT_PULLUP);
+    pinMode(BTN_PLAY,      INPUT_PULLUP);
+    pinMode(BTN_REC,       INPUT_PULLUP);
+    pinMode(BTN_RETURN,    INPUT_PULLUP);
+    pinMode(PIN_ENCODER_A, INPUT_PULLUP);
+    pinMode(PIN_ENCODER_B, INPUT_PULLUP);
+    Serial.println("Buttons OK");
+
+    // Battery: ADC setup happens before Bluetooth/audio start
+    battery_init();
+    battery_printStatus();
+
+    // Rotary encoder
+    encoder = new RotaryEncoder(PIN_ENCODER_A, PIN_ENCODER_B, RotaryEncoder::LatchMode::TWO03);
+    attachInterrupt(digitalPinToInterrupt(PIN_ENCODER_A), checkPosition, CHANGE);
+    attachInterrupt(digitalPinToInterrupt(PIN_ENCODER_B), checkPosition, CHANGE);
+    Serial.println("Encoder OK");
+
     // SD Card
     Serial.println("Init SD...");
     sdCardReady = initSDCard();
@@ -109,7 +108,7 @@ void setup() {
                       getArtists().size(), getTotalTrackCount());
     }
 
-    // Playback engine — safe, no hardware init yet
+    // Playback engine
     playback_init();
 
     // Start with artist list
@@ -120,10 +119,10 @@ void setup() {
 
 // ─────────────────────────────────────────────────────────────────────────────
 void loop() {
-    // Keep audio flowing — decoder runs here on Core 1, no FreeRTOS task needed
+    // Keep audio flowing
     playback_loop();
 
-    battery_update();       // one ADC conversion per visit, never blocks audio
+    battery_update();   // one ADC conversion per visit, never blocks audio
     // 't' on the serial monitor prints battery details (for calibrating the divider)
     while (Serial.available()) {
         int c = Serial.read();
@@ -346,3 +345,31 @@ void loop() {
         break;
     }
 }
+
+//                             _----___----__
+//                           _-+.-    __     #\
+//                       ..-     ++-.....       ++
+//                    -+       --+      -->        -#-
+//                  -+      -+     _####__            -#-
+//                -+     --+   _-++        ++-_           +-
+//              -+     -+ ++-                    -+-.       +-
+//             -      ----.                         .-+--.    -
+//           --      -+-.                             .-.-.    --
+//          -+      +-.                               .- .-.   +-
+//          +       +.                                 .+ .-    +
+//         -+      -.                                   .- -.   +-
+//         +-      +                                     + .-   -+
+//         +       .                                     .  -.   +
+//         +       .                                     .  -.   +
+//         +-      -                                     -  +-  -+
+//         -+      +.                                   .+   +  +-
+//         .--+     -                                   -   .+  +
+//         .- -+     -                                 -    +- +-
+//          .+ --+-    -.                             .-    - --
+//            -+    --+ --.                       .--      ++-
+//             #        --++-_                 _-++        #
+//              -+          +++--_________-.-+  -+       +-
+//                -+                           -+      +-
+//                   ++                     +-       ++
+//                     -++-             .+.      -++-
+//                        -#+#+##=========##+#+#+-

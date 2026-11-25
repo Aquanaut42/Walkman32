@@ -20,7 +20,7 @@ struct Artist {
 };
 
 // ── Index path on SD card ─────────────────────────────────────────────────────
-#define MUSIC_INDEX_PATH "/fieldwalk_index.json"
+#define MUSIC_INDEX_PATH "/walkman32_index.json"
 
 // ── Public API ────────────────────────────────────────────────────────────────
 

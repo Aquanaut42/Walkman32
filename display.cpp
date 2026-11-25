@@ -48,7 +48,7 @@ void showTestMenu1() {
     Paint_SelectImage(BlackImage);
     Paint_Clear(BLACK);
 
-    Paint_DrawString_EN(0, 5, "Fieldwalk", &Font12, BLACK, WHITE);
+    Paint_DrawString_EN(0, 5, "Walkman32", &Font12, BLACK, WHITE);
     Paint_DrawLine(0, 18, 127, 18, WHITE, DOT_PIXEL_1X1, LINE_STYLE_SOLID);
 
     Paint_DrawString_EN(5, 25, "  Return", &Font8, BLACK, WHITE);
@@ -64,7 +64,7 @@ void showTestMenu2() {
     Paint_SelectImage(BlackImage);
     Paint_Clear(BLACK);
 
-    Paint_DrawString_EN(0, 5, "Fieldwalk", &Font12, BLACK, WHITE);
+    Paint_DrawString_EN(0, 5, "walkman32k", &Font12, BLACK, WHITE);
     Paint_DrawLine(0, 18, 127, 18, WHITE, DOT_PIXEL_1X1, LINE_STYLE_SOLID);
 
     Paint_DrawString_EN(5, 25, "  Prev", &Font8, BLACK, WHITE);
@@ -80,7 +80,7 @@ void showTestMenu3() {
     Paint_SelectImage(BlackImage);
     Paint_Clear(BLACK);
 
-    Paint_DrawString_EN(0, 5, "Fieldwalk", &Font12, BLACK, WHITE);
+    Paint_DrawString_EN(0, 5, "Walkman32", &Font12, BLACK, WHITE);
     Paint_DrawLine(0, 18, 127, 18, WHITE, DOT_PIXEL_1X1, LINE_STYLE_SOLID);
 
     Paint_DrawString_EN(5, 25, "  Next", &Font8, BLACK, WHITE);
@@ -96,7 +96,7 @@ void showTestMenu4() {
     Paint_SelectImage(BlackImage);
     Paint_Clear(BLACK);
 
-    Paint_DrawString_EN(0, 5, "Fieldwalk", &Font12, BLACK, WHITE);
+    Paint_DrawString_EN(0, 5, "Walkman32", &Font12, BLACK, WHITE);
     Paint_DrawLine(0, 18, 127, 18, WHITE, DOT_PIXEL_1X1, LINE_STYLE_SOLID);
 
     Paint_DrawString_EN(5, 25, "  Play", &Font8, BLACK, WHITE);
@@ -112,7 +112,7 @@ void showTestMenu5() {
     Paint_SelectImage(BlackImage);
     Paint_Clear(BLACK);
 
-    Paint_DrawString_EN(0, 5, "Fieldwalk", &Font12, BLACK, WHITE);
+    Paint_DrawString_EN(0, 5, "walkman32k", &Font12, BLACK, WHITE);
     Paint_DrawLine(0, 18, 127, 18, WHITE, DOT_PIXEL_1X1, LINE_STYLE_SOLID);
 
     Paint_DrawString_EN(5, 25, "  Rec", &Font8, BLACK, WHITE);
@@ -136,44 +136,50 @@ void showBoot() {
     int bootArt = random(0, 6);
     switch (bootArt) {
         case 0:
-            Paint_DrawString_EN(10, 10, "  _________         ", &Font8, BLACK, WHITE);
-            Paint_DrawString_EN(10, 20, "     _____/__  _  __", &Font8, BLACK, WHITE);
-            Paint_DrawString_EN(10, 30, "      __)     /  / /", &Font8, BLACK, WHITE);
-            Paint_DrawString_EN(10, 40, "     |            / ", &Font8, BLACK, WHITE);
-            Paint_DrawString_EN(10, 50, "  ___|        / _/  ", &Font8, BLACK, WHITE);
+            Paint_DrawString_EN(10, 10, " _    _  ___  ___  ", &Font8, BLACK, WHITE);
+            Paint_DrawString_EN(10, 20, "( \/\/ )(__ )(__ \ ", &Font8, BLACK, WHITE);
+            Paint_DrawString_EN(10, 30, " )    (  (_ \ / _/ ", &Font8, BLACK, WHITE);
+            Paint_DrawString_EN(10, 40, "(__/\__)(___/(____)", &Font8, BLACK, WHITE);
             break;
         case 1:
-            Paint_DrawString_EN(10, 10, "    ____  _  _  ", &Font8, BLACK, WHITE);
-            Paint_DrawString_EN(10, 20, "   (  __)/ )( \\ ", &Font8, BLACK, WHITE);
-            Paint_DrawString_EN(10, 30, "    ) _) \\ /\\ / ", &Font8, BLACK, WHITE);
-            Paint_DrawString_EN(10, 40, "   (__)  (_/\\_) ", &Font8, BLACK, WHITE);
-            break;
+            Paint_DrawString_EN(10, 10, " __    __ _________  ", &Font8, BLACK, WHITE);
+            Paint_DrawString_EN(10, 20, "/ / /\ \ \___ /___ \ ", &Font8, BLACK, WHITE);
+            Paint_DrawString_EN(10, 30, "\ \/  \/ / |_ \ __) |", &Font8, BLACK, WHITE);
+            Paint_DrawString_EN(10, 40, " \  /\  / ___) / __/ ", &Font8, BLACK, WHITE);
+            Paint_DrawString_EN(10, 50, "  \/  \/ |____/_____|", &Font8, BLACK, WHITE);
+            break;     
         case 2:
-            Paint_DrawString_EN(10, 10, "    _____        ", &Font8, BLACK, WHITE);
-            Paint_DrawString_EN(10, 20, "   |   __|_ _ _ ", &Font8, BLACK, WHITE);
-            Paint_DrawString_EN(10, 30, "   |   __| | | |", &Font8, BLACK, WHITE);
-            Paint_DrawString_EN(10, 40, "   |__|  |_____|", &Font8, BLACK, WHITE);
-            break;
+            Paint_DrawString_EN(10, 10, " _       __________ ", &Font8, BLACK, WHITE);
+            Paint_DrawString_EN(10, 20, "| |     / /__  /__ \ ", &Font8, BLACK, WHITE);
+            Paint_DrawString_EN(10, 30, "| | /| / / /_ <__/ /", &Font8, BLACK, WHITE);
+            Paint_DrawString_EN(10, 40, "| |/ |/ /___/ / __/ ", &Font8, BLACK, WHITE);
+            Paint_DrawString_EN(10, 50, "|__/|__//____/____/ ", &Font8, BLACK, WHITE);
+            break;   
         case 3:
-            Paint_DrawString_EN(10, 10, "     ______        ", &Font8, BLACK, WHITE);
-            Paint_DrawString_EN(10, 20, "    / ____/      __", &Font8, BLACK, WHITE);
-            Paint_DrawString_EN(10, 30, "   / /_  | | /| / /", &Font8, BLACK, WHITE);
-            Paint_DrawString_EN(10, 40, "  / __/  | |/ |/ / ", &Font8, BLACK, WHITE);
-            Paint_DrawString_EN(10, 50, " /_/     |__/|__/  ", &Font8, BLACK, WHITE);
-            break;
+            Paint_DrawString_EN(10, 10, " __      _________ ", &Font8, BLACK, WHITE);
+            Paint_DrawString_EN(10, 20, " \ \    / /__ /_  )", &Font8, BLACK, WHITE);
+            Paint_DrawString_EN(10, 30, "  \ \/\/ / |_ \/ / ", &Font8, BLACK, WHITE);
+            Paint_DrawString_EN(10, 40, "   \_/\_/ |___/___|", &Font8, BLACK, WHITE);
+            break;        
         case 4:
-            Paint_DrawString_EN(10, 10, ",------.           ", &Font8, BLACK, WHITE);
-            Paint_DrawString_EN(10, 20, "|  .---',--.   ,--.", &Font8, BLACK, WHITE);
-            Paint_DrawString_EN(10, 30, "|  `--, |  |.'.|  |", &Font8, BLACK, WHITE);
-            Paint_DrawString_EN(10, 40, "|  |`   |   .'.   |", &Font8, BLACK, WHITE);
-            Paint_DrawString_EN(10, 50, "`--'    '--'   '--'", &Font8, BLACK, WHITE);
-            break;
+            Paint_DrawString_EN(10, 10, " ____      ____  ______    _____   ", &Font8, BLACK, WHITE);
+            Paint_DrawString_EN(10, 20, "|_  _|    |_  _|/ ____ `. / ___ `. ", &Font8, BLACK, WHITE);
+            Paint_DrawString_EN(10, 30, "  \ \  /\  / /  `'  __) ||_/___) | ", &Font8, BLACK, WHITE);
+            Paint_DrawString_EN(10, 40, "   \ \/  \/ /   _  |__ '. .'____.' ", &Font8, BLACK, WHITE);
+            Paint_DrawString_EN(10, 50, "    \  /\  /   | \____) |/ /_____  ", &Font8, BLACK, WHITE);
+            Paint_DrawString_EN(10, 60, "     \/  \/     \______.'|_______| ", &Font8, BLACK, WHITE);
+            break;            
         case 5:
-            Paint_DrawString_EN(10, 10, " _______           ", &Font8, BLACK, WHITE);
-            Paint_DrawString_EN(10, 20, "|    ___|.--.--.--.", &Font8, BLACK, WHITE);
-            Paint_DrawString_EN(10, 30, "|    ___||  |  |  |", &Font8, BLACK, WHITE);
-            Paint_DrawString_EN(10, 40, "|___|    |________|", &Font8, BLACK, WHITE);
+            Paint_DrawString_EN(10, 10, ".-- ...-- ..--- ", &Font8, BLACK, WHITE);
             break;
+        case 6:
+            Paint_DrawString_EN(10, 10, "     _/\/\______/\/\__/\/\/\/\/\____/\/\/\/\/\___", &Font8, BLACK, WHITE);
+            Paint_DrawString_EN(10, 20, "    _/\/\__/\__/\/\__________/\/\__________/\/\_ ", &Font8, BLACK, WHITE);
+            Paint_DrawString_EN(10, 30, "   _/\/\/\/\/\/\/\____/\/\/\/\______/\/\/\/\___  ", &Font8, BLACK, WHITE);
+            Paint_DrawString_EN(10, 40, "  _/\/\/\__/\/\/\__________/\/\__/\/\_________   ", &Font8, BLACK, WHITE);
+            Paint_DrawString_EN(10, 50, " _/\/\______/\/\__/\/\/\/\/\____/\/\/\/\/\/\_    ", &Font8, BLACK, WHITE);
+            Paint_DrawString_EN(10, 60, "____________________________________________     ", &Font8, BLACK, WHITE);
+            break;  
     }
 
     Paint_SetRotate(0);
@@ -186,7 +192,7 @@ void showMainMenu() {
     Paint_SelectImage(BlackImage);
     Paint_Clear(BLACK);
 
-    Paint_DrawString_EN(0, 5, "Fieldwalk", &Font12, BLACK, WHITE);
+    Paint_DrawString_EN(0, 5, "Walkman32", &Font12, BLACK, WHITE);
     Paint_DrawLine(0, 18, 127, 18, WHITE, DOT_PIXEL_1X1, LINE_STYLE_SOLID);
 
     Paint_DrawString_EN(5, 25, "  Songs", &Font8, BLACK, WHITE);
